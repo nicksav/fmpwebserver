@@ -4,7 +4,7 @@ import (
     "fmpwebserver/routers"
     "fmpwebserver/settings"
     "fmpwebserver/services/models"
-    "github.com/codegangsta/negroni"
+    "github.com/urfave/negroni"
     "net/http"
 )
 
