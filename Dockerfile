@@ -15,6 +15,7 @@ RUN go get github.com/gorilla/context
 RUN go get github.com/urfave/negroni
 RUN go get github.com/garyburd/redigo/redis
 RUN go get github.com/gorilla/mux
+RUN go get golang.org/x/crypto/bcrypt
 RUN go install fmpwebserver
 
 # Run the outyet command by default when the container starts.
