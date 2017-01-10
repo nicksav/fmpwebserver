@@ -13,6 +13,8 @@ RUN go get github.com/go-sql-driver/mysql
 RUN go get gopkg.in/gomail.v2
 RUN go get github.com/gorilla/context
 RUN go get github.com/urfave/negroni
+RUN go get github.com/garyburd/redigo/redis
+RUN go get github.com/gorilla/mux
 RUN go install fmpwebserver
 
 # Run the outyet command by default when the container starts.
