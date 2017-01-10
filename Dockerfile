@@ -19,7 +19,7 @@ RUN go get golang.org/x/crypto/bcrypt
 RUN go install fmpwebserver
 
 # Run the outyet command by default when the container starts.
-#ENTRYPOINT /go/bin/fmpwebserver
+ENTRYPOINT /go/bin/fmpwebserver
 
 # Document that the service listens on port 8080.
-#EXPOSE 8080
+EXPOSE 5000
