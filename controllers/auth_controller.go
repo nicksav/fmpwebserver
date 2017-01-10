@@ -9,6 +9,8 @@ import (
 )
 
 
+
+
 func SignUp(w http.ResponseWriter, r *http.Request){
 	requestUser := new(models.User)
 	decoder := json.NewDecoder(r.Body)
