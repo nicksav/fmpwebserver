@@ -3,7 +3,7 @@ package routers
 import (
 	"fmpwebserver/controllers"
 	"fmpwebserver/core/authentication"
-	"github.com/codegangsta/negroni"
+	"github.com/urfave/negroni"
 	"github.com/gorilla/mux"
 )
 
