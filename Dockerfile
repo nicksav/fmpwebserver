@@ -8,6 +8,11 @@ ADD . /go/src/fmpwebserver
 # Build the outyet command inside the container.
 # (You may fetch or manage dependencies here,
 # either manually or with a tool like "godep".)
+RUN go get github.com/dgrijalva/jwt-go
+RUN go get github.com/go-sql-driver/mysql
+RUN go get gopkg.in/gomail.v2
+RUN go get github.com/gorilla/context
+RUN go get github.com/urfave/negroni
 RUN go install fmpwebserver
 
 # Run the outyet command by default when the container starts.
