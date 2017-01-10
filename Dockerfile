@@ -18,7 +18,7 @@ RUN go get github.com/gorilla/mux
 RUN go get golang.org/x/crypto/bcrypt
 RUN go install fmpwebserver
 
-ADD settings /go/bin
+ADD settings /go/bin/settings
 
 # Run the outyet command by default when the container starts.
 ENTRYPOINT /go/bin/fmpwebserver
