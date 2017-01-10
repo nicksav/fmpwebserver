@@ -5,6 +5,8 @@ FROM golang
 # Copy the local package files to the container's workspace.
 ADD . /go/src/fmpwebserver
 
+ENV GO_ENV production
+
 # Build the outyet command inside the container.
 # (You may fetch or manage dependencies here,
 # either manually or with a tool like "godep".)
