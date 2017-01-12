@@ -8,9 +8,9 @@ import (
 )
 
 var environments = map[string]string{
-	"production":    "settings/prod.json",
-	"preproduction": "settings/pre.json",
-	"tests":         "../../settings/tests.json",
+	"production":    "/go/bin/settings/prod.json",
+	"preproduction": "/go/bin/settings/pre.json",
+	"tests":         "/go/bin/settings/tests.json",
 }
 
 type Settings struct {
