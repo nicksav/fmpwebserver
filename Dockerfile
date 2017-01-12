@@ -19,6 +19,7 @@ RUN go get github.com/garyburd/redigo/redis
 RUN go get github.com/gorilla/mux
 RUN go get golang.org/x/crypto/bcrypt
 RUN go build fmpwebserver
+RUN chmod u=rwx /go/src/fmpwebserver/fmpwebserver
 
 
 # Run the outyet command by default when the container starts.
