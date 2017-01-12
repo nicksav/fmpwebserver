@@ -18,12 +18,15 @@ RUN go get github.com/urfave/negroni
 RUN go get github.com/garyburd/redigo/redis
 RUN go get github.com/gorilla/mux
 RUN go get golang.org/x/crypto/bcrypt
-RUN go build fmpwebserver
-RUN chmod 755 /go/src/fmpwebserver/fmpwebserver
+RUN go install fmpwebserver
 
+
+ADD settings /go/bin/settings
+RUN chmod 755 /go/bin/settings
+RUN cd /go/bin && ls -l
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT /go/src/fmpwebserver/fmpwebserver
+ENTRYPOINT /go/bin/fmpwebserver
 
 # Document that the service listens on port 8080.
 EXPOSE 5000
