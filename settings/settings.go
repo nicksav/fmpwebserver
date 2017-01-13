@@ -32,7 +32,7 @@ func Init() {
 }
 
 func listDirs(){
-	files, _ := ioutil.ReadDir("./")
+	files, _ := ioutil.ReadDir("./bin")
     for _, f := range files {
             fmt.Println(f.Name())
     }
