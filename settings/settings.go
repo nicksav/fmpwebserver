@@ -31,7 +31,15 @@ func Init() {
 	LoadSettingsByEnv(env)
 }
 
+func listDirs(){
+	files, _ := ioutil.ReadDir("./")
+    for _, f := range files {
+            fmt.Println(f.Name())
+    }
+}
+
 func LoadSettingsByEnv(env string) {
+	listDirs()
 	content, err := ioutil.ReadFile(environments[env])
 	if err != nil {
 		fmt.Println("Error while reading config file", err)
