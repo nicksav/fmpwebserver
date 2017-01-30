@@ -22,8 +22,6 @@ RUN go install fmpwebserver
 
 
 ADD settings /go/bin/settings
-RUN chmod 755 /go/bin/settings
-RUN cd /go/bin && ls -l
 
 # Run the outyet command by default when the container starts.
 ENTRYPOINT /go/bin/fmpwebserver
