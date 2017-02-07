@@ -16,7 +16,7 @@ func Connect() (conn *RedisCli) {
 		instanceRedisCli = new(RedisCli)
 		var err error
 
-		instanceRedisCli.conn, err = redis.Dial("tcp", "127.0.0.1:6379")
+		instanceRedisCli.conn, err = redis.Dial("tcp", "redis:6379")
 
 		if err != nil {
 			fmt.Println("Very Bad",err)
