@@ -48,6 +48,7 @@ func SignUpKiosk(w http.ResponseWriter, r *http.Request){
 
 	k,confirmCode,err:= models.SignUpKiosk(requestKiosk.UserName)
 	if err!= nil {
+	    fmt.Println("Method:SignUp",err)
 		w.WriteHeader(http.StatusInternalServerError)
 	}else{
 		go services.SendConfirmEmailKiosk(k,confirmCode)

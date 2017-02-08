@@ -1,0 +1,61 @@
+version: '2'
+networks:
+    net_front:
+        driver: bridge
+    net_backend:
+        driver: bridge
+services:
+    web:
+        image: nginx:latest
+        container_name: web
+        networks:
+            - net_front
+        volumes:
+            - /etc/gmp/nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - 80:80
+    redis:
+        image: redis
+        container_name: redis
+        networks:
+            - net_backend
+    webserver1:
+        image: nicksav/fmpwebserver
+        volumes:
+            - /etc/gmp/keys:/go/bin/settings/keys
+        container_name: webserver1
+        networks:
+            - net_backend
+            - net_front
+        ports:
+            - 5000:5000
+    webserver2:
+        image: nicksav/fmpwebserver
+        volumes:
+            - /etc/gmp/keys:/go/bin/settings/keys
+        container_name: webserver2
+        networks:
+            - net_backend
+            - net_front
+        ports:
+            - 5000:5000
+    masterdb:
+        image: percona:5.7.16
+        volumes:
+            - /etc/gmp/masterdb/data:/var/lib/mysql
+            - /etc/gmp/master/cnf:/etc/mysql/conf.d
+        environment:
+            MYSQL_ROOT_PASSWORD: mysecretpass
+        container_name: masterdb
+        networks:
+            - net_backend
+    slavedb:
+        image: percona:5.7.16
+        volumes:
+            - /etc/gmp/slavedb/data:/var/lib/mysql
+            - /etc/gmp/slave/cnf:/etc/mysql/conf.d
+        environment:
+            MYSQL_ROOT_PASSWORD: mysecretpass
+        container_name: slavedb
+        networks:
+            - net_backend
